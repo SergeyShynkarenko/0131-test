@@ -1,0 +1,110 @@
+// USER VARIABLES SECTION
+
+$accent: #FDD639 // Accent Color
+$fontSize: 14px // Body Font Size
+$textColor: #333333 // Text Color
+$lineHeight: 1.35 // Document Line Height
+$fontWeight: 400 // Document Font Weight
+$grey: #808080 // Date Color
+$bgYellow: #FFFBC8 // Background Profile
+$bdColor: #C4CBCF // Border Color
+$bgBlue: #F2FBFF // Background Comment
+$link: #005DA1 // Link Color
+$footerBg: #f2f2f2 // Footer Background
+$userFont: arial, sans-serif // User Font Family
+$ptSansFont: ptSans, sans-serif // PTSans Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+
+$grid-gutter-width: 30px
+$gutter: $grid-gutter-width
+
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+@import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		src: url($furl) format('woff2')
+
+@include font('arial', normal, 400, '../fonts/ArialMT.woff2')
+@include font('arial', normal, 700, '../fonts/Arial-BoldMT.woff2')
+@include font('ptSans', normal, 700, '../fonts/PTSans-bold.woff2')
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+@mixin reset
+	margin: 0
+	padding: 0
+	list-style: none
+
+ul
+	@include reset
+	li
+		outline: none
+
+a
+	color: $link
+
+img 
+	max-width: 100%
+
+p
+	margin: 0
+
+h3
+	font: 700 16px/1.25 $userFont
+	margin: 0
+
+body
+	font-family: $userFont
+	font-size: $fontSize
+	line-height: $lineHeight
+	color: $textColor
+	font-weight: $fontWeight
+	min-width: 320px
+	position: relative
+	overflow-x: hidden
+
+.container
+	max-width: 760px
+	margin: 0 auto
+	padding: 0 20px
+	height: 100%
+
+.container-f
+	max-width: 720px
+	margin: 0 auto
+
+.tab-active
+	font: 700 16px/1 $userFont
+	color: $textColor
+
+	&:hover 
+		color: $textColor
+		text-decoration: none
+	
+	
+
